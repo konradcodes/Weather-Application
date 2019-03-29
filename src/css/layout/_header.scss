@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+//* This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-image: url("/img/header.jpg");
+  background-position: bottom;
+  background-size: cover;
+
+  &__logo-box {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+  &__navbar {
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    backface-visibility: hidden;
+    animation: fromTop 1.7s ease-in-out;
+
+    & ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    & li {
+      font-size: 0.7rem;
+      margin: 0.3rem;
+      font-weight: 400;
+    }
+    & a {
+      text-decoration: none;
+      color: $color-white;
+      transition: all 0.3s;
+    }
+  }
+}
