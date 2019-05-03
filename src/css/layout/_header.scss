@@ -3,50 +3,69 @@
 // -----------------------------------------------------------------------------
 
 .header {
-  position: relative;
   height: 100vh;
-  width: 100%;
-  margin: 0;
-  background-image: url("/img/header.jpg");
-  background-position: bottom;
-  background-size: cover;
+  position: relative;
 
-  &__logo-box {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  //All Circles
+  &__circle {
+    border-radius: 10rem;
   }
 
-  &__logo {
-    height: 3.5rem;
-  }
-  &__navbar {
-    text-decoration: none;
+  &__circle-blue {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: transparent;
-    overflow: hidden;
-    text-align: center;
-    backface-visibility: hidden;
-    animation: fromTop 1.7s ease-in-out;
+    top: 2rem;
+    left: 10rem;
+    width: 15rem;
+    height: 15rem;
+    background-image: linear-gradient(to right bottom, $color-blue-light, $color-blue-dark);
+  }
+  //Pink Circle with one inside
+  &__circle-pink {
+    position: absolute;
+    bottom: -4rem;
+    left: -5rem;
+    width: 20rem;
+    height: 20rem;
+    background-image: linear-gradient(to right bottom, $color-pink-light, $color-purple-dark);
+  }
+  &__circle-inner {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background: $color-pink-light;
+    opacity: 0.6;
+    position: absolute;
+  }
+  //Ending of Pink Circle
+  //Purple Circle with one inside
+  &__circle-purple {
+    position: absolute;
+    right: 0;
+    top: -4rem;
+    width: 20rem;
+    height: 20rem;
+    background-image: linear-gradient(to right bottom, $color-purple-dark, $color-blue-light);
+  }
+  &__circle-inner2 {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    background: $color-pink-light;
+    opacity: 0.6;
+  }
+  // Ending of Purple Circle
 
-    & ul {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-    & li {
-      font-size: 0.7rem;
-      margin: 0.3rem;
-      font-weight: 400;
-    }
-    & a {
-      text-decoration: none;
-      color: $color-white;
-      transition: all 0.3s;
-    }
+  //Start of the Application
+
+  &__application {
+    min-width: 100rem;
+    height: 60rem;
+    background: $color-white;
+    border-radius: 1.2rem;
+    margin-top: 10rem;
   }
 }

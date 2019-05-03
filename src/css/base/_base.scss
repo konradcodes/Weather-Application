@@ -7,7 +7,7 @@
  */
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; //This defines what 1rem is 10/16px = 62.5%;
 }
 
 /**
@@ -26,4 +26,5 @@ html {
 
 body {
   box-sizing: border-box;
+  background: $color-background;
 }
