@@ -1,2 +1,4 @@
+//GLobal Application Controller
+
 // CSS
-import "../css/main.scss";
+import '../css/main.scss';
