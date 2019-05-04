@@ -3,4 +3,34 @@
  */
 body {
   font-size: 1rem;
+  font-family: Montserrat, sans-serif;
+}
+
+//Application Styles
+
+.heading-degrees {
+  font-size: 7rem;
+  color: $color-black;
+  font-weight: 300;
+  margin-left: 2rem;
+}
+
+.paragraph-primary {
+  font-size: 1.3rem;
+  font-weight: 300;
+  border-radius: 1rem;
+  background: $color-blue-dark;
+  padding: 0.4rem 1rem;
+  color: $color-white;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  margin-top: 1.2rem;
+}
+
+.paragraph-secondary {
+  font-size: 1.5rem;
+  background: none;
+  color: $color-black;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
 }
