@@ -80,10 +80,10 @@
     align-items: center;
 
     &:not(:last-child) {
-      border-right: 2px solid $color-blue-light;
+      border-right: 2px solid #eee;
     }
     &:first-child {
-      border-left: 2px solid $color-blue-light;
+      border-left: 2px solid #eee;
     }
     &:last-child {
       border-bottom-right-radius: 1.2rem;

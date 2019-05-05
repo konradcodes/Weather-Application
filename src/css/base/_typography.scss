@@ -16,7 +16,7 @@ body {
 }
 
 .paragraph-primary {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 300;
   border-radius: 1rem;
   background: $color-blue-dark;
@@ -25,6 +25,12 @@ body {
   font-weight: 400;
   letter-spacing: 0.1rem;
   margin-top: 1.2rem;
+
+  &--condition {
+    background: none;
+    color: $color-black;
+    font-weight: 600;
+  }
 }
 
 .paragraph-secondary {
