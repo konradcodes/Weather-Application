@@ -2,11 +2,15 @@
 .application {
   height: 100%;
   width: 100%;
+  position: relative;
   &__top {
     height: 70%;
     background-image: linear-gradient(to right bottom, $color-blue-light, $color-purple-dark);
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__input-container {
@@ -34,6 +38,31 @@
       font-size: inherit;
       opacity: 0.7;
     }
+  }
+  &__time {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    background: red;
+    width: 2rem;
+    height: 2rem;
+  }
+  &__navigation {
+    display: flex;
+    height: 20%;
+    width: 30%;
+  }
+  &__weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
+  }
+  &__latest-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
   }
   &__bottom {
     height: 30%;
