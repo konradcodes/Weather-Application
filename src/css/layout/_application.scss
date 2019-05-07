@@ -43,9 +43,15 @@
     position: absolute;
     top: 3rem;
     right: 3rem;
-    background: red;
-    width: 2rem;
-    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+  }
+  &__clock {
+    width: 5rem;
+    height: 5rem;
   }
   &__navigation {
     display: flex;
