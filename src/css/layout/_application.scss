@@ -11,12 +11,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__input-container {
     width: 95%;
     height: 20%;
-    margin-left: 5rem;
+    margin-left: -2rem;
   }
   &__form {
     height: 100%;
@@ -39,6 +40,59 @@
       opacity: 0.7;
     }
   }
+  &__search-container {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15rem;
+  }
+  &__search {
+    background: #eee;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 12rem;
+    & span {
+      height: 2.5rem;
+      width: 2.5rem;
+      background: $color-blue-light;
+      border-radius: 50%;
+      margin: 0 0.7rem;
+
+      &:nth-child(1) {
+        animation: bounce 1s ease-in-out infinite;
+      }
+      &:nth-child(2) {
+        animation: bounce 1s ease-in-out 0.33s infinite;
+      }
+      &:nth-child(3) {
+        animation: bounce 1s ease-in-out 0.66s infinite;
+      }
+    }
+  }
+  &__location {
+    align-self: flex-start;
+    background: #ddd;
+    width: 100%;
+  }
+
+  &__location-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 4rem;
+  }
+
   &__time {
     position: absolute;
     top: 3rem;
@@ -50,11 +104,12 @@
     color: $color-white;
   }
   &__clock {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
   }
   &__navigation {
     display: flex;
+    align-self: flex-start;
     height: 20%;
     width: 30%;
   }
@@ -101,6 +156,10 @@
   &__icon {
     width: 8rem;
     height: 8rem;
+  }
+  &__saved-icon {
+    width: 5rem;
+    height: 5rem;
   }
   &__b-right {
     height: 100%;

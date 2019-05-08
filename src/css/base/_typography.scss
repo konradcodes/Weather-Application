@@ -15,6 +15,12 @@ body {
   margin-left: 2rem;
 }
 
+.heading-secondary {
+  font-size: 2rem;
+  color: $color-white;
+  font-weight: 300;
+}
+
 .paragraph-primary {
   font-size: 1.2rem;
   font-weight: 300;
@@ -45,8 +51,13 @@ body {
 
 .heading-tertiary {
   font-size: 1.4rem;
-  margin-top: 1rem;
+  font-weight: 500;
 }
 .paragraph-tertiary {
   font-size: 1.2rem;
+}
+//Location individual
+.heading-location-degrees {
+  font-size: 1.4rem;
+  font-weight: 500;
 }
