@@ -156,10 +156,15 @@
   &__icon {
     width: 8rem;
     height: 8rem;
+
+    &--day {
+      width: 6rem;
+      height: 6rem;
+    }
   }
   &__saved-icon {
-    width: 5rem;
     height: 5rem;
+    margin-right: 1rem;
   }
   &__b-right {
     height: 100%;
