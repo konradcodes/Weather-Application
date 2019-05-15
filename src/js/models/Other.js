@@ -10,16 +10,20 @@ export default class Other {
   constructor() {
     this.other = [];
   }
+
   async getWeather(id) {
     try {
-      const response = await axios(`${proxy}api.openweathermap.org/data/2.5/weather?&units=metric&appid=${APIKEY}&id=${id}`);
+      const response = await axios(
+        `${proxy}api.openweathermap.org/data/2.5/weather?&units=metric&appid=${APIKEY}&id=${id}`
+      );
       this.other.push(response);
     } catch (err) {
-      console.log(error);
-      //If an error when receiving weather information appeared
-      //Render Error on the UI
+      console.log(err);
+      // If an error when receiving weather information appeared
+      // Render Error on the UI
     }
   }
+
   clearOther() {
     this.other = [];
   }

@@ -11,10 +11,13 @@ export default class Search {
   constructor(query) {
     this.query = query;
   }
+
   async getResults() {
     try {
-      const res = await axios(`${proxy}https://cities-ids.herokuapp.com/?q=${this.query}`);
-      //Saving the data on the object
+      const res = await axios(
+        `${proxy}https://cities-ids.herokuapp.com/?q=${this.query}`
+      );
+      // Saving the data on the object
       this.result = res;
       console.log(this.result);
     } catch (err) {

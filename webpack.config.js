@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/js/index.js', './src/css/main.scss'],
+  entry: ['@babel/polyfill', './src/js/app.js', './src/css/main.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.js'

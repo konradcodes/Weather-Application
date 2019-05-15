@@ -10,14 +10,16 @@ export default class Forecast {
 
   async getWeather(id) {
     try {
-      const response = await axios(`${proxy}api.openweathermap.org/data/2.5/forecast?&units=metric&appid=${APIKEY}&id=${id}`);
+      const response = await axios(
+        `${proxy}api.openweathermap.org/data/2.5/forecast?&units=metric&appid=${APIKEY}&id=${id}`
+      );
 
       this.weather = response.data.list;
       this.city = response.data.city;
     } catch (err) {
       console.log(err);
-      //If an error when receiving weather information appeared
-      //Render Error on the UI
+      // If an error when receiving weather information appeared
+      // Render Error on the UI
     }
   }
 }
