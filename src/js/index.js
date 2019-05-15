@@ -4,7 +4,7 @@
 import Search from './models/Search';
 import Current from './models/Current';
 import Forecast from './models/Forecast';
-
+import Other from './models/Other';
 //Views
 import {} from './views/base';
 /** //? Global State of the application
@@ -18,3 +18,6 @@ import {} from './views/base';
 const state = {};
 //Leaking all the information from state for testing purposes
 window.state = state;
+
+const other = new Other();
+other.getWeather(524901);

@@ -1,6 +1,6 @@
 /*
 This Model is responsible for receiving the data regarding the current user location
-If the user allows the geolocation it will get users location.
+If the user allows the geolocation it will get users location and display it on the UI
 */
 import axios from 'axios';
 import { proxy, APIKEY } from '../config';

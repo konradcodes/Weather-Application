@@ -13,9 +13,7 @@ export default class Forecast {
       const response = await axios(`${proxy}api.openweathermap.org/data/2.5/forecast?&units=metric&appid=${APIKEY}&id=${id}`);
 
       this.weather = response.data.list;
-      console.log(this.weather);
       this.city = response.data.city;
-      console.log(this.city);
     } catch (err) {
       console.log(err);
       //If an error when receiving weather information appeared
