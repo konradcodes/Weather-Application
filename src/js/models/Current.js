@@ -2,7 +2,6 @@
 This Model is responsible for receiving the data regarding the current user location
 If the user allows the geolocation it will get users location.
 */
-
 import axios from 'axios';
 import { proxy, APIKEY } from '../config';
 
@@ -28,6 +27,7 @@ export default class Current {
     this.coordinates = [];
   }
   //Call the getCurrentLocation function and receive current user coordinates
+  //The purpose is to get user location and display it on the UI
   async getCoordinates() {
     try {
       const data = await getCurrentLocation(geoLocationOptions);
@@ -41,9 +41,19 @@ export default class Current {
     }
   }
   async getWeather() {
-    const response = await axios(
-      `${proxy}api.openweathermap.org/data/2.5/weather?&units=metric&lat=${this.coordinates[0]}&lon=${this.coordinates[1]}&appid=${APIKEY}`
-    );
-    console.log(response);
+    try {
+      const response = await axios(
+        `${proxy}api.openweathermap.org/data/2.5/weather?&units=metric&lat=${this.coordinates[0]}&lon=${
+          this.coordinates[1]
+        }&appid=${APIKEY}`
+      );
+      //Saving the data on the object
+      //This.weaether will store all the data regarding the weather.
+      this.weather = response.data;
+    } catch (err) {
+      console.log(err);
+      //If an error when receiving weather information appeared
+      //Render Error on the UI
+    }
   }
 }
