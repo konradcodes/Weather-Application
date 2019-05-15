@@ -3,6 +3,7 @@
 //Models
 import Search from './models/Search';
 import Current from './models/Current';
+import Forecast from './models/Forecast';
 
 //Views
 import {} from './views/base';
@@ -17,9 +18,3 @@ import {} from './views/base';
 const state = {};
 //Leaking all the information from state for testing purposes
 window.state = state;
-
-const current = new Current();
-current.getCoordinates();
-setTimeout(() => {
-  current.getWeather();
-}, 2400);

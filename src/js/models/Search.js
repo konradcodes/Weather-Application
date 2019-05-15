@@ -19,7 +19,6 @@ export default class Search {
       console.log(this.result);
     } catch (err) {
       console.error(`Something went wrong. ${err}`);
-      throw err;
     }
   }
 }
