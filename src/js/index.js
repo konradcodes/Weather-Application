@@ -5,6 +5,7 @@ import Search from './models/Search';
 import Current from './models/Current';
 import Forecast from './models/Forecast';
 import Other from './models/Other';
+import Saved from './models/Saved';
 //Views
 import {} from './views/base';
 /** //? Global State of the application
