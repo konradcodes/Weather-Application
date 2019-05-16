@@ -2,21 +2,21 @@
 
 export const elements = {
   bottom: document.querySelector('.application__bottom'),
+  paragraphDays: document.querySelectorAll('.paragraph-primary'),
 };
-
 export const elementStrings = {
   loader: 'application__loader',
 };
 export const renderLoader = parent => {
-  const loader = `<div class="application__loader">
+  const loader = `<div class="${elementStrings.loader}">
                      <span></span>
                      <span></span>
                      <span></span>
                   </div>`;
-  parent.insertAdjacenetHTML('afterbegin', loader);
+  parent.insertAdjacentHTML('afterbegin', loader);
 };
 
 export const clearLoader = () => {
-  const loader = '';
+  const loader = document.querySelector(`.${elementStrings.loader}`);
   if (loader) loader.parentElement.removeChild(loader);
 };

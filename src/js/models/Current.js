@@ -3,6 +3,7 @@ This Model is responsible for receiving the data regarding the current user loca
 If the user allows the geolocation it will get users location and display it on the UI
 */
 import axios from 'axios';
+import date from 'date-and-time';
 import { proxy, APIKEY } from '../config';
 
 const geoLocationOptions = {
@@ -24,10 +25,18 @@ function getCurrentLocation(options) {
     );
   });
 }
+const now = new Date();
+const nextDay = new Date();
 // Current Location Weather Class
 export default class Current {
   constructor() {
     this.coordinates = [];
+    this.currentDate = {
+      dayOfTheWeek: new Date().getDay(),
+      month: new Date().getMonth(),
+      day: date.format(now, 'dddd'),
+      nextDay: date.addDays(now, +1),
+    };
   }
 
   // Call the getCurrentLocation function and receive current user coordinates
@@ -36,7 +45,6 @@ export default class Current {
     try {
       const data = await getCurrentLocation(geoLocationOptions);
       this.coordinates = [data.coords.latitude, data.coords.longitude];
-      console.log(this.coordinates);
     } catch (err) {
       // If user Declined or another error appeared
       console.log(err);
@@ -59,9 +67,19 @@ export default class Current {
           this.coordinates[0]
         }&lon=${this.coordinates[1]}&appid=${APIKEY}`
       );
-      // Saving the data on the object
-      // This.weaether will store all the data regarding the weather.
-      this.weather = response.data;
+      // Saving the data on the object itself
+      // By Saving it over here it will be more maintanable
+      // Because I will be able to change it over here instead of every
+      // View that this appears in :)
+      this.country = response.data.sys.country;
+      this.city = response.data.name;
+      this.weather = {
+        temp: Math.round(response.data.main.temp),
+        windSpeed: Math.round(response.data.wind.speed),
+        windDegrees: Math.round(response.data.wind.deg),
+        day: this.currentDate.day,
+        nextDay: this.currentDate.nextDay,
+      };
     } catch (err) {
       console.log(err);
       // If an error when receiving weather information appeared

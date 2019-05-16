@@ -8,12 +8,9 @@ import Other from './models/Other';
 import Saved from './models/Saved';
 
 // Views
-import {
-  elements,
-  elementStrings,
-  renderLoader,
-  clearLoader,
-} from './views/base';
+// eslint-disable-next-line prettier/prettier
+import { elements, elementStrings, renderLoader, clearLoader } from './views/base';
+import * as currentView from './views/currentView';
 
 /** //* Global State of the application
  * - Search Object
@@ -26,7 +23,6 @@ import {
 const state = {};
 // Leaking all the information from state for testing purposes
 window.state = state;
-
 // -- CONTROLLERS --
 // Name must end with 'controller'
 
@@ -34,7 +30,7 @@ window.state = state;
 
 const currentController = async () => {
   // Render Loader on the UI
-
+  renderLoader(elements.bottom);
   // 1) New Current Object and add it to state if it doesnt exist yet.
   if (!state.current) state.current = new Current();
   // Receive current location coordinates if they are not currently saved on the state
@@ -42,14 +38,17 @@ const currentController = async () => {
     await state.current.getCoordinates();
   }
   // Get Weather for current location
-  if (state.current.coordinatesAvailable === 2) {
-    state.current.getWeather();
-
+  if (state.current.coordinatesAvailable() === 2) {
+    await state.current.getWeather();
     // Clear Loader from the UI
-
+    clearLoader();
     // Render the Weather Results
+    currentView.renderResults(
+      state.current.weather,
+      elements.bottom,
+      state.current.weather.day
+    );
   }
-  const response = state.current.coordinatesAvailable();
 };
 
 // -- OTHER LOCATIONS CONTROLLER --
