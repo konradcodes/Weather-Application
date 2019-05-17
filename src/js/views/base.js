@@ -2,7 +2,8 @@
 
 export const elements = {
   bottom: document.querySelector('.application__bottom'),
-  paragraphDays: document.querySelectorAll('.paragraph-primary'),
+  top: document.querySelector('.application__top'),
+  headingLocation: document.querySelector('.heading-location'),
 };
 export const elementStrings = {
   loader: 'application__loader',

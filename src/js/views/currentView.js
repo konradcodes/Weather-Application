@@ -9,7 +9,7 @@ export const renderResults = (data, container, paragraph) => {
   <div class="application__b-left">
    <div class="application__degrees">
      <h2 class="heading-degrees">${data.temp}°</h2>
-     <p class="paragraph-primary">${paragraph} 2nd</p>
+     <p class="paragraph-primary">${paragraph.today}</p>
    </div>
   <div class="application__condition">
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon">
@@ -20,38 +20,36 @@ export const renderResults = (data, container, paragraph) => {
  </div>
 <div class="application__b-right">
   <div class="application__day-weather application__day-weather--1">
-     <p class="paragraph-primary">${paragraph}</p>
+     <p class="paragraph-primary">${paragraph.one}</p>
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
+     <p class="paragraph-secondary">${data.temp}°</p>
   </div>
   <div class="application__day-weather application__day-weather--2">
-     <p class="paragraph-primary">Tue</p>
+     <p class="paragraph-primary">${paragraph.two}</p>
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
+     <p class="paragraph-secondary">${data.temp}°</p>
   </div>
   <div class="application__day-weather application__day-weather--3">
-     <p class="paragraph-primary">Tue</p>
+     <p class="paragraph-primary">${paragraph.three}</p>
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
+     <p class="paragraph-secondary">${data.temp}°</p>
   </div>
   <div class="application__day-weather application__day-weather--4">
-     <p class="paragraph-primary">Tue</p>
+     <p class="paragraph-primary">${paragraph.four}</p>
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
-  </div>
-  <div class="application__day-weather application__day-weather--5">
-     <p class="paragraph-primary">Tue</p>
-     <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
-  </div>
-  <div class="application__day-weather application__day-weather--6">
-     <p class="paragraph-primary">Tue</p>
-     <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
-     <p class="paragraph-secondary">60°</p>
+     <p class="paragraph-secondary">${data.temp}°</p>
   </div>
 </div> 
    `;
   container.insertAdjacentHTML('afterbegin', html);
-  //   const paragraphDays = Array.from(elements.paragraphDays);
-  //   paragraphDays.forEach()
+};
+
+export const renderLocationInfo = (data, container) => {
+  const html = `
+   <div class="application__time">
+      <img src="./img/clock.png" alt="Clock" class="application__clock">
+      <h3 class="heading-location">${data.city} , ${data.country}</h3>
+      <p class="paragraph-tertiary">${data.weather.time}</p>
+</div>`;
+  container.insertAdjacentHTML('afterbegin', html);
 };

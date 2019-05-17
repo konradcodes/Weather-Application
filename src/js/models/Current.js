@@ -26,7 +26,7 @@ function getCurrentLocation(options) {
   });
 }
 const now = new Date();
-const nextDay = new Date();
+const time = new Date();
 // Current Location Weather Class
 export default class Current {
   constructor() {
@@ -34,8 +34,14 @@ export default class Current {
     this.currentDate = {
       dayOfTheWeek: new Date().getDay(),
       month: new Date().getMonth(),
-      day: date.format(now, 'dddd'),
-      nextDay: date.addDays(now, +1),
+      time: date.format(time, 'h:m A'),
+      nextDays: {
+        today: date.format(now, 'dddd'),
+        one: date.format(date.addDays(now, +1), 'ddd'),
+        two: date.format(date.addDays(now, +2), 'ddd'),
+        three: date.format(date.addDays(now, +3), 'ddd'),
+        four: date.format(date.addDays(now, +4), 'ddd'),
+      },
     };
   }
 
@@ -77,8 +83,8 @@ export default class Current {
         temp: Math.round(response.data.main.temp),
         windSpeed: Math.round(response.data.wind.speed),
         windDegrees: Math.round(response.data.wind.deg),
-        day: this.currentDate.day,
-        nextDay: this.currentDate.nextDay,
+        nextDays: this.currentDate.nextDays,
+        time: this.currentDate.time,
       };
     } catch (err) {
       console.log(err);

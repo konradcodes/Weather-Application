@@ -46,8 +46,10 @@ const currentController = async () => {
     currentView.renderResults(
       state.current.weather,
       elements.bottom,
-      state.current.weather.day
+      state.current.currentDate.nextDays
     );
+    // console.log(state.current.weather.time);
+    currentView.renderLocationInfo(state.current, elements.top);
   }
 };
 
