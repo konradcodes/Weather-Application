@@ -19,7 +19,9 @@ export const renderResults = (data, container, paragraph) => {
   </div>
  </div>
 <div class="application__b-right">
-  <div class="application__day-weather application__day-weather--1">
+  <div class="application__day-weather application__day-weather--1 dataid=${
+    data.id
+  }">
      <p class="paragraph-primary">${paragraph.one}</p>
      <img src="./img/Icon.png" alt="Icon Weather" class="application__icon application__icon--day">
      <p class="paragraph-secondary">${data.temp}°</p>

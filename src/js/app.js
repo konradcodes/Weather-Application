@@ -42,13 +42,18 @@ const currentController = async () => {
     await state.current.getWeather();
     // Clear Loader from the UI
     clearLoader();
-    // Render the Weather Results
+
+    // Add dataset to the parent element
+    elements.bottom.setAttribute('data-id', state.current.coordinates);
+
+    // Render the Current Location Weather Results
     currentView.renderResults(
-      state.current.weather,
+      state.current,
       elements.bottom,
       state.current.currentDate.nextDays
     );
-    // console.log(state.current.weather.time);
+
+    // Render Location and it's time
     currentView.renderLocationInfo(state.current, elements.top);
   }
 };
