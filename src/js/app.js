@@ -11,6 +11,7 @@ import Saved from './models/Saved';
 // eslint-disable-next-line prettier/prettier
 import { elements, elementStrings, renderLoader, clearLoader } from './views/base';
 import * as currentView from './views/currentView';
+import * as forecastView from './views/forecastView';
 
 /** //* Global State of the application
  * - Search Object
@@ -43,12 +44,13 @@ const currentController = async () => {
     // Clear Loader from the UI
     clearLoader();
 
+    console.log(state.current.coordinates);
     // Add dataset to the parent element
     elements.bottom.setAttribute('data-id', state.current.coordinates);
 
     // Render the Current Location Weather Results
     currentView.renderResults(
-      state.current,
+      state.current.weather,
       elements.bottom,
       state.current.currentDate.nextDays
     );
@@ -61,6 +63,17 @@ const currentController = async () => {
 // -- OTHER LOCATIONS CONTROLLER --
 
 // -- FORECAST CONTROLLER --
+const forecastController = async () => {
+  const id = state.current.coordinates;
+  // 1) New Current Object and add it to state if it doesnt exist yet.
+  if (!state.forecast) {
+    state.forecast = new Forecast(id);
+  }
+  // Get 5 day Weather for current location
+  await state.forecast.getWeather();
+  // Render weather results on the UI
+  // forecastView.renderWeather(state.forecast, elements.bottom);
+};
 
 // -- SEARCH CONTROLLER --
 
@@ -75,4 +88,7 @@ window.addEventListener('load', () => {
   currentController();
   // Restore Saved Locations
   // Render Saved Locations if any
+  setTimeout(() => {
+    forecastController();
+  }, 4000);
 });
