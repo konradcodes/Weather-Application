@@ -44,7 +44,17 @@ body {
   background: none;
   color: $color-black;
   font-weight: 700;
+  // margin-bottom: 1.2rem;
+}
+.paragraph-max,
+.paragraph-min {
+  font-size: 1.2rem;
   margin-bottom: 1.2rem;
+}
+.paragraph-dot {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0.5rem;
 }
 
 //Clock Styles

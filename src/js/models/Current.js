@@ -85,6 +85,7 @@ export default class Current {
         windDegrees: Math.round(response.data.wind.deg),
         nextDays: this.currentDate.nextDays,
         time: this.currentDate.time,
+        icon: response.data.weather[0].icon,
       };
     } catch (err) {
       console.log(err);

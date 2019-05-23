@@ -56,7 +56,7 @@ const currentController = async () => {
     );
 
     // Render Location and it's time
-    currentView.renderLocationInfo(state.current, elements.top);
+    currentView.renderLocationInfo(state.current, elements.top, state.forecast);
   }
 };
 
@@ -72,7 +72,7 @@ const forecastController = async () => {
   // Get 5 day Weather for current location
   await state.forecast.getWeather();
   // Render weather results on the UI
-  forecastView.renderWeather(state.forecast, elements.bottom);
+  // forecastView.renderWeather(state.forecast, elements.bottom);
 };
 
 // -- SEARCH CONTROLLER --

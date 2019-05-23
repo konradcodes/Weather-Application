@@ -66,7 +66,13 @@ export default class Forecast {
         const hours = new Date(el.dt_txt).getHours();
         return hours === weatherTime;
       });
-      console.log(this.weather);
+      this.icons = {
+        today: this.weather[0].weather[0].icon,
+        one: this.weather[1].weather[0].icon,
+        two: this.weather[2].weather[0].icon,
+        three: this.weather[3].weather[0].icon,
+        four: this.weather[4].weather[0].icon,
+      };
     } catch (err) {
       console.log(err);
       // If an error when receiving weather information appeared

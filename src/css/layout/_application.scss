@@ -164,6 +164,9 @@
       height: 6rem;
     }
   }
+  &__temperature {
+    display: flex;
+  }
   &__saved-icon {
     height: 5rem;
     margin-right: 1rem;

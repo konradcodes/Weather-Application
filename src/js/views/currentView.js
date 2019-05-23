@@ -12,7 +12,9 @@ export const renderResults = (data, container, paragraph) => {
      <p class="paragraph-primary">${paragraph.today}</p>
    </div>
   <div class="application__condition">
-     <img src="./img/Icon.png" alt="Icon Weather" class="application__icon">
+     <img src="./img/weather-icons/${
+       data.icon
+     }.svg" alt="Icon Weather" class="application__icon">
      <p class="paragraph-primary paragraph-primary--condition">${
        data.windSpeed
      }mph / ${data.windDegrees}°</p>
