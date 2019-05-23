@@ -72,7 +72,7 @@ const forecastController = async () => {
   // Get 5 day Weather for current location
   await state.forecast.getWeather();
   // Render weather results on the UI
-  // forecastView.renderWeather(state.forecast, elements.bottom);
+  forecastView.renderWeather(state.forecast, elements.bottom);
 };
 
 // -- SEARCH CONTROLLER --
@@ -83,12 +83,10 @@ const forecastController = async () => {
 
 // -- ON PAGE LOAD --
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   // Call Current Location Controller
-  currentController();
+  await currentController();
   // Restore Saved Locations
   // Render Saved Locations if any
-  setTimeout(() => {
-    forecastController();
-  }, 4000);
+  await forecastController();
 });

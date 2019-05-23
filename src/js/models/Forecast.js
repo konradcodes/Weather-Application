@@ -37,14 +37,36 @@ export default class Forecast {
     }
     try {
       const response = await axios(`${call}`);
-      console.log(response);
       this.city = response.data.city.name;
       this.country = response.data.city.country;
       this.nextDays = this.currentDate.nextDays;
-      this.weather = response.data.list.map(el => ({
-        temp: Math.round(el.main.temp),
-        icon: el.weather[0].icon,
-      }));
+      this.weather = [];
+
+      const time = new Date().getHours();
+
+      let weatherTime;
+
+      const weather = response.data.list.reduce(
+        (prev, curr) => {
+          const currentTime = new Date(curr.dt_txt).getHours();
+          const previousTime = new Date(prev.dt_txt).getHours();
+          if (
+            currentTime >= time &&
+            (!previousTime || currentTime < previousTime)
+          ) {
+            weatherTime = currentTime;
+            return curr;
+          }
+          return prev;
+        },
+        { dt: undefined }
+      );
+
+      this.weather = response.data.list.filter(el => {
+        const hours = new Date(el.dt_txt).getHours();
+        return hours === weatherTime;
+      });
+      console.log(this.weather);
     } catch (err) {
       console.log(err);
       // If an error when receiving weather information appeared
