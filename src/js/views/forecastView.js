@@ -6,11 +6,16 @@ export const renderWeather = (data, container) => {
   <div class="application__day-weather application__day-weather--1">
      <p class="paragraph-primary">${data.nextDays.one}</p>
      <img src="./img/weather-icons/${
-       data.weather.icons.one
+       data.icons.one
      }.svg" alt="Icon Weather" class="application__icon application__icon--day">
      <p class="paragraph-secondary">${Math.round(
        data.weather[0].main.temp_min
      )}°</p>
+     <div class="application__temperature">
+     <p class="paragraph-max">${Math.round(data.weather[0].main.temp_max)}°</p>
+     <span class="paragraph-dot">•</span>
+     <p class="paragraph-min">${Math.round(data.weather[0].main.temp_min)}°</p>
+   </div>
   </div>
   <div class="application__day-weather application__day-weather--2">
      <p class="paragraph-primary">${data.nextDays.two}</p>
@@ -21,10 +26,10 @@ export const renderWeather = (data, container) => {
        data.weather[1].main.temp
      )}°</p>
      <div class="application__temperature">
-     <p class="paragraph-max">25°</p>
-     <span class="paragraph-dot">•</span>
-     <p class="paragraph-min">25°</p>
-  </div>
+      <p class="paragraph-max">${Math.round(data.weather[1].main.temp_max)}°</p>
+      <span class="paragraph-dot">•</span>
+      <p class="paragraph-min">${Math.round(data.weather[1].main.temp_min)}°</p>
+    </div>
   </div>
   <div class="application__day-weather application__day-weather--3">
      <p class="paragraph-primary">${data.nextDays.three}</p>
@@ -34,6 +39,11 @@ export const renderWeather = (data, container) => {
      <p class="paragraph-secondary">${Math.round(
        data.weather[2].main.temp
      )}°</p>
+     <div class="application__temperature">
+     <p class="paragraph-max">${Math.round(data.weather[2].main.temp_max)}°</p>
+     <span class="paragraph-dot">•</span>
+     <p class="paragraph-min">${Math.round(data.weather[2].main.temp_min)}°</p>
+   </div>
   </div>
   <div class="application__day-weather application__day-weather--4">
      <p class="paragraph-primary">${data.nextDays.four}</p>
@@ -43,6 +53,11 @@ export const renderWeather = (data, container) => {
      <p class="paragraph-secondary">${Math.round(
        data.weather[3].main.temp
      )}°</p>
+     <div class="application__temperature">
+     <p class="paragraph-max">${Math.round(data.weather[3].main.temp_max)}°</p>
+     <span class="paragraph-dot">•</span>
+     <p class="paragraph-min">${Math.round(data.weather[3].main.temp_min)}°</p>
+   </div>
   </div>
 </div> 
    `;

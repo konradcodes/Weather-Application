@@ -66,6 +66,7 @@ export default class Forecast {
         const hours = new Date(el.dt_txt).getHours();
         return hours === weatherTime;
       });
+      console.log(this.weather);
       this.icons = {
         today: this.weather[0].weather[0].icon,
         one: this.weather[1].weather[0].icon,
