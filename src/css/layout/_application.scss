@@ -98,15 +98,17 @@
     position: absolute;
     top: 3rem;
     right: 3rem;
+    width: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $color-white;
   }
-  &__clock {
-    width: 4rem;
+  &__location {
     height: 4rem;
+    background: none;
+    fill: $color-white;
   }
   &__navigation {
     display: flex;

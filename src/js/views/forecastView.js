@@ -9,12 +9,12 @@ export const renderWeather = (data, container) => {
        data.icons.one
      }.svg" alt="Icon Weather" class="application__icon application__icon--day">
      <p class="paragraph-secondary">${Math.round(
-       data.weather[0].main.temp_min
+       data.weather[0].main.temp
      )}°</p>
      <div class="application__temperature">
-     <p class="paragraph-max">${Math.round(data.weather[0].main.temp_max)}°</p>
+     <p class="paragraph-max">${Math.round(data.weather[0].main.temp_min)}°</p>
      <span class="paragraph-dot">•</span>
-     <p class="paragraph-min">${Math.round(data.weather[0].main.temp_min)}°</p>
+     <p class="paragraph-min">${Math.round(data.weather[0].main.temp_max)}°</p>
    </div>
   </div>
   <div class="application__day-weather application__day-weather--2">
@@ -26,9 +26,9 @@ export const renderWeather = (data, container) => {
        data.weather[1].main.temp
      )}°</p>
      <div class="application__temperature">
-      <p class="paragraph-max">${Math.round(data.weather[1].main.temp_max)}°</p>
+      <p class="paragraph-max">${Math.round(data.weather[1].main.temp_min)}°</p>
       <span class="paragraph-dot">•</span>
-      <p class="paragraph-min">${Math.round(data.weather[1].main.temp_min)}°</p>
+      <p class="paragraph-min">${Math.round(data.weather[1].main.temp_max)}°</p>
     </div>
   </div>
   <div class="application__day-weather application__day-weather--3">
@@ -40,9 +40,9 @@ export const renderWeather = (data, container) => {
        data.weather[2].main.temp
      )}°</p>
      <div class="application__temperature">
-     <p class="paragraph-max">${Math.round(data.weather[2].main.temp_max)}°</p>
+     <p class="paragraph-max">${Math.round(data.weather[2].main.temp_min)}°</p>
      <span class="paragraph-dot">•</span>
-     <p class="paragraph-min">${Math.round(data.weather[2].main.temp_min)}°</p>
+     <p class="paragraph-min">${Math.round(data.weather[2].main.temp_max)}°</p>
    </div>
   </div>
   <div class="application__day-weather application__day-weather--4">
@@ -54,9 +54,9 @@ export const renderWeather = (data, container) => {
        data.weather[3].main.temp
      )}°</p>
      <div class="application__temperature">
-     <p class="paragraph-max">${Math.round(data.weather[3].main.temp_max)}°</p>
+     <p class="paragraph-max">${Math.round(data.weather[3].main.temp_min)}°</p>
      <span class="paragraph-dot">•</span>
-     <p class="paragraph-min">${Math.round(data.weather[3].main.temp_min)}°</p>
+     <p class="paragraph-min">${Math.round(data.weather[3].main.temp_max)}°</p>
    </div>
   </div>
 </div> 

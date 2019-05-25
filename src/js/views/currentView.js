@@ -27,9 +27,11 @@ export const renderResults = (data, container, paragraph) => {
 export const renderLocationInfo = (data, container) => {
   const html = `
    <div class="application__time">
-      <img src="./img/clock.png" alt="Clock" class="application__clock">
-      <h3 class="heading-location">${data.city} , ${data.country}</h3>
-      <p class="paragraph-tertiary">${data.weather.time}</p>
-</div>`;
+      <svg class="application__location">
+      <use xlink:href="./img/sprite.svg#icon-compass"></use>
+    </svg>
+    <h3 class="heading-location">${data.city} , ${data.country}</h3>
+    <p class="paragraph-tertiary">${data.weather.time}</p>
+  </div>`;
   container.insertAdjacentHTML('afterbegin', html);
 };
