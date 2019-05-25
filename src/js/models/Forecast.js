@@ -62,11 +62,17 @@ export default class Forecast {
         { dt: undefined }
       );
 
-      this.weather = response.data.list.filter(el => {
+      const FiveDaysForecast = response.data.list.filter(el => {
         const hours = new Date(el.dt_txt).getHours();
         return hours === weatherTime;
       });
-      console.log(this.weather);
+
+      this.weather = FiveDaysForecast;
+      if (this.weather.length === 0) {
+        this.weather = weather;
+      } else {
+        this.weather = FiveDaysForecast;
+      }
       this.icons = {
         today: this.weather[0].weather[0].icon,
         one: this.weather[1].weather[0].icon,

@@ -34,7 +34,7 @@ export default class Current {
     this.currentDate = {
       dayOfTheWeek: new Date().getDay(),
       month: new Date().getMonth(),
-      time: date.format(time, 'h:m A'),
+      time: date.format(time, 'h:mm A'),
       nextDays: {
         today: date.format(now, 'dddd'),
         one: date.format(date.addDays(now, +1), 'ddd'),

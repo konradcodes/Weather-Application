@@ -12,6 +12,7 @@ import Saved from './models/Saved';
 import { elements, elementStrings, renderLoader, clearLoader } from './views/base';
 import * as currentView from './views/currentView';
 import * as forecastView from './views/forecastView';
+import * as searchView from './views/searchView';
 
 /** //* Global State of the application
  * - Search Object
@@ -34,28 +35,27 @@ const currentController = async () => {
   renderLoader(elements.bottom);
   // 1) New Current Object and add it to state if it doesnt exist yet.
   if (!state.current) state.current = new Current();
-  // Receive current location coordinates if they are not currently saved on the state
+  // 2) Receive current location coordinates if they are not currently saved on the state
   if (state.current.coordinatesAvailable() < 2) {
     await state.current.getCoordinates();
   }
-  // Get Weather for current location
+  // 3) Get Weather for current location
   if (state.current.coordinatesAvailable() === 2) {
     await state.current.getWeather();
     // Clear Loader from the UI
     clearLoader();
 
-    console.log(state.current.coordinates);
-    // Add dataset to the parent element
+    // 4) Add dataset to the parent element
     elements.bottom.setAttribute('data-id', state.current.coordinates);
 
-    // Render the Current Location Weather Results
+    // 5) Render the Current Location Weather Results
     currentView.renderResults(
       state.current.weather,
       elements.bottom,
       state.current.currentDate.nextDays
     );
 
-    // Render Location and it's time
+    // 6) Render Location and it's time
     currentView.renderLocationInfo(state.current, elements.top, state.forecast);
   }
 };
@@ -69,14 +69,36 @@ const forecastController = async () => {
   if (!state.forecast) {
     state.forecast = new Forecast(id);
   }
-  // Get 5 day Weather for current location
+  // 2) Get 5 day Weather for current location
   await state.forecast.getWeather();
-  // Render weather results on the UI
+  // 3) Render weather results on the UI
   forecastView.renderWeather(state.forecast, elements.bottom);
 };
 
 // -- SEARCH CONTROLLER --
+const searchController = async () => {
+  // 1) Get Input from User(view)
+  const query = searchView.getInput();
+  if (query) {
+    // 2) New Search Object and add it to state
+    state.search = new Search(query);
 
+    // 3) Prepare UI for the results
+    searchView.clearInput();
+    searchView.clearPrevResults();
+
+    // Render Loader
+    renderLoader(elements.top);
+
+    // Try
+    // Search for weather
+    // CLear Loader
+    // Render results
+    // Catch
+    // Clear loader
+  }
+  console.log(query);
+};
 // -- SAVED LOCATIONS CONTROLLER --
 
 // -- EVENT LISTENERS --
@@ -89,4 +111,9 @@ window.addEventListener('load', async () => {
   // Restore Saved Locations
   // Render Saved Locations if any
   await forecastController();
+});
+
+elements.searchForm.addEventListener('submit', e => {
+  searchController();
+  e.preventDefault();
 });

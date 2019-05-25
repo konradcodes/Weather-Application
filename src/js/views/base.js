@@ -4,6 +4,9 @@ export const elements = {
   bottom: document.querySelector('.application__bottom'),
   top: document.querySelector('.application__top'),
   headingLocation: document.querySelector('.heading-location'),
+  searchForm: document.querySelector('.application__form'),
+  searchInput: document.querySelector('.application__input'),
+  locationInfo: document.querySelector('.application__time'),
 };
 export const elementStrings = {
   loader: 'application__loader',
