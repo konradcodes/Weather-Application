@@ -32,7 +32,7 @@ window.state = state;
 
 const currentController = async () => {
   // Render Loader on the UI
-  renderLoader(elements.bottom);
+  renderLoader(elements.bottom, 'beforeend');
   // 1) New Current Object and add it to state if it doesnt exist yet.
   if (!state.current) state.current = new Current();
   // 2) Receive current location coordinates if they are not currently saved on the state
@@ -87,8 +87,10 @@ const searchController = async () => {
     searchView.clearInput();
     searchView.clearPrevResults();
 
+    // Render Container
+    searchView.renderContainer(elements.navigation);
     // Render Loader
-    renderLoader(elements.top);
+    renderLoader(elements.searchContainer, 'afterbegin');
 
     // Try
     // Search for weather

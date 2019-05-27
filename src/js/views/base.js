@@ -7,17 +7,19 @@ export const elements = {
   searchForm: document.querySelector('.application__form'),
   searchInput: document.querySelector('.application__input'),
   locationInfo: document.querySelector('.application__time'),
+  navigation: document.querySelector('.application__navigation'),
+  searchContainer: document.querySelector('.application__search'),
 };
 export const elementStrings = {
   loader: 'application__loader',
 };
-export const renderLoader = parent => {
+export const renderLoader = (parent, position) => {
   const loader = `<div class="${elementStrings.loader}">
                      <span></span>
                      <span></span>
                      <span></span>
                   </div>`;
-  parent.insertAdjacentHTML('afterbegin', loader);
+  parent.insertAdjacentHTML(position, loader);
 };
 
 export const clearLoader = () => {
