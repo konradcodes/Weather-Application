@@ -42,7 +42,7 @@
   }
   &__search-container {
     width: 55%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,8 +50,8 @@
   }
   &__search {
     background: #eee;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,11 +109,13 @@
     height: 4rem;
     background: none;
     fill: $color-white;
+    display: flex;
+    justify-content: center;
   }
   &__navigation {
     display: flex;
     align-self: flex-start;
-    height: 20%;
+    height: 15%;
     width: 30%;
   }
   &__weather-container {

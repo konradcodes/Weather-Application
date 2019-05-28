@@ -87,10 +87,8 @@ const searchController = async () => {
     searchView.clearInput();
     searchView.clearPrevResults();
 
-    // Render Container
+    // Render Container with Loader
     searchView.renderContainer(elements.navigation);
-    // Render Loader
-    renderLoader(elements.searchContainer, 'afterbegin');
 
     // Try
     // Search for weather
