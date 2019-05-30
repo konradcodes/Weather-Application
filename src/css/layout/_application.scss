@@ -53,8 +53,10 @@
     width: 90%;
     height: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
   }
   &__loader {
     display: flex;
@@ -85,13 +87,19 @@
     align-self: flex-start;
     background: #ddd;
     width: 100%;
+    min-height: 6rem;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 
   &__location-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 4rem;
+    height: 100%;
+    margin: 0 8rem;
   }
 
   &__time {
@@ -105,7 +113,7 @@
     align-items: center;
     color: $color-white;
   }
-  &__location {
+  &__location-icon {
     height: 4rem;
     background: none;
     fill: $color-white;

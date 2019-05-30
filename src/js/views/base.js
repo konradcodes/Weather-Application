@@ -1,5 +1,4 @@
 // DOM Elements and Loaders
-
 export const elements = {
   bottom: document.querySelector('.application__bottom'),
   top: document.querySelector('.application__top'),
@@ -8,10 +7,10 @@ export const elements = {
   searchInput: document.querySelector('.application__input'),
   locationInfo: document.querySelector('.application__time'),
   navigation: document.querySelector('.application__navigation'),
-  searchContainer: document.querySelector('.application__search'),
 };
 export const elementStrings = {
   loader: 'application__loader',
+  searchContainer: '.application__search',
 };
 export const renderLoader = (parent, position) => {
   const loader = `<div class="${elementStrings.loader}">

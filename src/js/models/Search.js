@@ -19,7 +19,6 @@ export default class Search {
       );
       // Saving the data on the object
       this.result = res;
-      console.log(this.result);
     } catch (err) {
       console.error(`Something went wrong. ${err}`);
     }

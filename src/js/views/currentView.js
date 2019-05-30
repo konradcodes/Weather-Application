@@ -27,7 +27,7 @@ export const renderResults = (data, container, paragraph) => {
 export const renderLocationInfo = (data, container) => {
   const html = `
    <div class="application__time">
-      <svg class="application__location">
+      <svg class="application__location-icon">
       <use xlink:href="./img/sprite.svg#icon-compass"></use>
     </svg>
     <h3 class="heading-location">${data.city} , ${data.country}</h3>

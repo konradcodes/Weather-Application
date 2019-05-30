@@ -86,18 +86,28 @@ const searchController = async () => {
     // 3) Prepare UI for the results
     searchView.clearInput();
     searchView.clearPrevResults();
-
     // Render Container with Loader
+    console.log(elements);
     searchView.renderContainer(elements.navigation);
-
-    // Try
-    // Search for weather
-    // CLear Loader
-    // Render results
-    // Catch
-    // Clear loader
+    try {
+      // Search for weather
+      await state.search.getResults();
+      // CLear Loader
+      clearLoader();
+      const searchContainer = document.querySelector(
+        elementStrings.searchContainer
+      );
+      if (searchContainer) {
+        searchContainer.remove();
+      }
+      // Render results
+      const searchData = state.search.result.data;
+      searchData.forEach(el => searchView.renderResults(el, searchContainer));
+    } catch (err) {
+      clearLoader();
+      console.error(err);
+    }
   }
-  console.log(query);
 };
 // -- SAVED LOCATIONS CONTROLLER --
 
