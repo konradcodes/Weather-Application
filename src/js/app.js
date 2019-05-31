@@ -9,7 +9,7 @@ import Saved from './models/Saved';
 
 // Views
 // eslint-disable-next-line prettier/prettier
-import { elements, elementStrings, renderLoader, clearLoader } from './views/base';
+import { elements, elementStrings, renderLoader, clearLoader, renderErrorMessage } from './views/base';
 import * as currentView from './views/currentView';
 import * as forecastView from './views/forecastView';
 import * as searchView from './views/searchView';
@@ -44,7 +44,6 @@ const currentController = async () => {
     await state.current.getWeather();
     // Clear Loader from the UI
     clearLoader();
-
     // 4) Add dataset to the parent element
     elements.bottom.setAttribute('data-id', state.current.coordinates);
 
@@ -86,25 +85,22 @@ const searchController = async () => {
     // 3) Prepare UI for the results
     searchView.clearInput();
     searchView.clearPrevResults();
+    searchView.clearSearchContainer();
     // Render Container with Loader
-    console.log(elements);
     searchView.renderContainer(elements.navigation);
     try {
       // Search for weather
       await state.search.getResults();
       // CLear Loader
       clearLoader();
-      const searchContainer = document.querySelector(
-        elementStrings.searchContainer
-      );
-      if (searchContainer) {
-        searchContainer.remove();
-      }
+      const search = document.querySelector(elementStrings.search);
       // Render results
       const searchData = state.search.result.data;
-      searchData.forEach(el => searchView.renderResults(el, searchContainer));
+      searchData.forEach(el => searchView.renderResults(el, search));
     } catch (err) {
       clearLoader();
+      const msg = 'No Results found! Try Again :)';
+      renderErrorMessage(elementStrings.search, 'afterbegin', msg);
       console.error(err);
     }
   }

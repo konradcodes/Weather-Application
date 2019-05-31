@@ -1,4 +1,4 @@
-import { elements } from './base';
+import { elements, elementStrings } from './base';
 
 export const getInput = () => elements.searchInput.value;
 
@@ -7,9 +7,13 @@ export const clearInput = () => (elements.searchInput.value = '');
 export const clearPrevResults = () => {
   elements.bottom.innerHTML = '';
 };
-export const clearSearchContainer = e => {
-  const search = e.target.matches('.application__search');
-  search.innerHTML = '';
+export const clearSearchContainer = () => {
+  const searchContainer = document.querySelector(
+    elementStrings.searchContainer
+  );
+  if (searchContainer !== null) {
+    searchContainer.remove();
+  }
 };
 
 export const renderContainer = navigation => {
