@@ -8,6 +8,7 @@ export const elements = {
   locationInfo: document.querySelector('.application__time'),
   navigation: document.querySelector('.application__navigation'),
   application: document.querySelector('.application'),
+  // location: document.querySelector('.application__location'),
 };
 export const elementStrings = {
   loader: 'application__loader',

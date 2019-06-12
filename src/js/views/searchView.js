@@ -42,8 +42,9 @@ export const renderContainer = navigation => {
 };
 
 export const renderResults = (data, container) => {
+  console.log(data);
   const html = `
-  <div class="application__location">
+  <div class="application__location" data-id=${data.id}>
   <div class="application__location-container">
      <h3 class="heading-tertiary">${data.name}</h3>
      <h4 class="heading-location-degrees">${data.country}</h4>

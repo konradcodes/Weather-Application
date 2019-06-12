@@ -114,9 +114,14 @@ elements.searchForm.addEventListener('submit', e => {
 });
 elements.application.addEventListener('click', e => {
   const closeSearch = e.target.closest('.application__close');
+  const location = e.target.closest('.application__location');
 
   if (closeSearch) {
     searchView.clearSearchContainer();
+  }
+  if (location) {
+    const locationID = location.dataset.id;
+    forecastController();
   }
 });
 
