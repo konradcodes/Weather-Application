@@ -19,13 +19,22 @@ export const clearSearchContainer = () => {
 export const renderContainer = navigation => {
   const html = `
   <div class="application__search-container">
-  <h2 class="heading-secondary">Icon -Tap to add the location</h2>
+    <div class="application__search-header">
+      <svg class="application__map">
+          <use xlink:href="./img/sprite.svg#icon-map"></use>
+      </svg>
+      <h2 class="heading-secondary">
+          - Tap to add the location</h2>
+      <svg class="application__close">
+          <use xlink:href="./img/sprite.svg#icon-x"></use>
+      </svg>
+    </div>
   <div class="application__search">
-      <div class="application__loader">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+     <div class="application__loader">
+        <span></span>
+        <span></span>
+        <span></span>
+     </div>
   </div>
 </div>
 `;

@@ -19,7 +19,6 @@ body {
   font-size: 2rem;
   color: $color-white;
   font-weight: 300;
-  margin-bottom: 1rem;
 }
 
 .paragraph-primary {
@@ -69,6 +68,10 @@ body {
 .heading-tertiary {
   font-size: 1.4rem;
   font-weight: 500;
+  background: $color-blue-dark;
+  padding: 1rem;
+  color: $color-white;
+  border-radius: 1rem;
 }
 .heading-location {
   font-size: 1.4rem;
@@ -81,6 +84,7 @@ body {
 //Location individual
 .heading-location-degrees {
   font-size: 1.4rem;
-  font-weight: 500;
+  color: $color-blue-dark;
+  font-weight: 600;
   margin-left: 1rem;
 }

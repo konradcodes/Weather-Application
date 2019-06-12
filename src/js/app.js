@@ -108,6 +108,17 @@ const searchController = async () => {
 // -- SAVED LOCATIONS CONTROLLER --
 
 // -- EVENT LISTENERS --
+elements.searchForm.addEventListener('submit', e => {
+  searchController();
+  e.preventDefault();
+});
+elements.application.addEventListener('click', e => {
+  const closeSearch = e.target.closest('.application__close');
+
+  if (closeSearch) {
+    searchView.clearSearchContainer();
+  }
+});
 
 // -- ON PAGE LOAD --
 
@@ -117,9 +128,4 @@ window.addEventListener('load', async () => {
   // Restore Saved Locations
   // Render Saved Locations if any
   await forecastController();
-});
-
-elements.searchForm.addEventListener('submit', e => {
-  searchController();
-  e.preventDefault();
 });

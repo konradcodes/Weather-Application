@@ -7,6 +7,7 @@ export const elements = {
   searchInput: document.querySelector('.application__input'),
   locationInfo: document.querySelector('.application__time'),
   navigation: document.querySelector('.application__navigation'),
+  application: document.querySelector('.application'),
 };
 export const elementStrings = {
   loader: 'application__loader',
